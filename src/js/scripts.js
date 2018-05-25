@@ -17,10 +17,17 @@ var blog2 = new Blog({
     title: ' Writer of various books',
     url: 'javaland.com'
 });
-
-console.log(blog1.toJSON());
 var Blogs = Backbone.Collection.extend();
-
 var blogList = new Blogs([blog1, blog2]);
 
-console.log(blogList);
+var BlogView = Backbone.extend({
+    model: new Blog(),
+    tagName: 'tr',
+    intialize: function () {
+        this.template = _.template($('.blogs-list-template').html())
+    },
+    render: function () {
+        this.$el.html(this.template(this.model.toJSON()));
+    }
+});
+//var BlogsView = Backbone.
