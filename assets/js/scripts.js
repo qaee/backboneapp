@@ -20,7 +20,7 @@ var blog2 = new Blog({
 var Blogs = Backbone.Collection.extend();
 var blogList = new Blogs([blog1, blog2]);
 
-var BlogView = Backbone.extend({
+var BlogView = Backbone.View.extend({
     model: new Blog(),
     tagName: 'tr',
     intialize: function () {
@@ -30,4 +30,6 @@ var BlogView = Backbone.extend({
         this.$el.html(this.template(this.model.toJSON()));
     }
 });
+
+console.log(blogList)
 //var BlogsView = Backbone.
